@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.pytest_cache/
+.mypy_cache/
+*.pyc
+
+# Saved model artifacts
+saved_models/*.joblib
+saved_models/*.pt
+saved_models/metrics.json
+saved_models/scaler.joblib
+
+# Node / frontend
+node_modules/
+dist/
+.DS_Store
+*.local
+
+# Vite
+frontend/.vite/
+frontend/dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
