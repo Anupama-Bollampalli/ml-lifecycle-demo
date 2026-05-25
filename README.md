@@ -88,3 +88,8 @@ docker run -p 7863:7863 ml-lifecycle-demo
 - **Backend**: FastAPI, scikit-learn, PyTorch, NumPy, joblib
 - **Frontend**: React 18, TypeScript, Vite, Tailwind CSS, Recharts
 - **Dataset**: UCI Breast Cancer Wisconsin (569 samples, 30 features)
+
+## Live Demo
+
+- **Frontend**: [GitHub Pages](https://anupama-bollampalli.github.io/ml-lifecycle-demo/)
+- **Backend API**: [HF Space](https://abollampalli-ml-lifecycle-demo.hf.space)
