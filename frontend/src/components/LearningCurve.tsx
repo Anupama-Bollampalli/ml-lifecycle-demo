@@ -74,7 +74,7 @@ export default function LearningCurve() {
                 tick={{ fontSize: 11 }}
                 tickFormatter={(v: number) => v.toFixed(3)}
               />
-              <Tooltip formatter={(v: number) => v.toFixed(4)} />
+              <Tooltip formatter={((v: number) => v.toFixed(4)) as any} />
               <Legend wrapperStyle={{ paddingTop: '12px' }} />
               <Line
                 type="monotone"

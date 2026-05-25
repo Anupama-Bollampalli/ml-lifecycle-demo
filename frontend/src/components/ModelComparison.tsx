@@ -150,7 +150,7 @@ export default function ModelComparison() {
               />
             ))}
             <Legend />
-            <Tooltip formatter={(v: number) => `${v.toFixed(2)}%`} />
+            <Tooltip formatter={((v: number) => `${v.toFixed(2)}%`) as any} />
           </RadarChart>
         </ResponsiveContainer>
       </div>

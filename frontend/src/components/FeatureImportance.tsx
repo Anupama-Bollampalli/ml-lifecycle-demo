@@ -72,7 +72,7 @@ export default function FeatureImportance() {
               width={135}
             />
             <Tooltip
-              formatter={(v: number) => [`${v.toFixed(3)}%`, 'Importance']}
+              formatter={((v: number) => [`${v.toFixed(3)}%`, 'Importance']) as any}
             />
             <Bar dataKey="importance" radius={[0, 4, 4, 0]}>
               {chartData.map((_, idx) => (
