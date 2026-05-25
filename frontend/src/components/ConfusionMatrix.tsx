@@ -10,6 +10,8 @@ const MODEL_OPTIONS: { key: ModelKey; label: string }[] = [
 
 type CMData = { tp: number; fp: number; tn: number; fn: number }
 
+const API = import.meta.env.VITE_API_URL ?? ''
+
 export default function ConfusionMatrix() {
   const [selectedModel, setSelectedModel] = useState<ModelKey>('logistic')
   const [cm, setCm] = useState<CMData | null>(null)
@@ -19,7 +21,7 @@ export default function ConfusionMatrix() {
   useEffect(() => {
     setLoading(true)
     setError(null)
-    fetch(`/api/models/${selectedModel}/confusion-matrix`)
+    fetch(`${API}/models/${selectedModel}/confusion-matrix`)
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`)
         return r.json()

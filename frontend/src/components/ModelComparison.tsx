@@ -42,13 +42,15 @@ const MODEL_DISPLAY: Record<string, string> = {
   neural: 'Neural Network',
 }
 
+const API = import.meta.env.VITE_API_URL ?? ''
+
 export default function ModelComparison() {
   const [data, setData] = useState<ComparisonData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('/api/models/comparison')
+    fetch(`${API}/models/comparison`)
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`)
         return r.json()

@@ -20,6 +20,8 @@ const MODEL_OPTIONS: { key: ModelKey; label: string }[] = [
 
 type CurvePoint = { epoch: number; train_loss: number; val_loss: number }
 
+const API = import.meta.env.VITE_API_URL ?? ''
+
 export default function LearningCurve() {
   const [selectedModel, setSelectedModel] = useState<ModelKey>('neural')
   const [curve, setCurve] = useState<CurvePoint[]>([])
@@ -29,7 +31,7 @@ export default function LearningCurve() {
   useEffect(() => {
     setLoading(true)
     setError(null)
-    fetch(`/api/models/${selectedModel}/learning-curve`)
+    fetch(`${API}/models/${selectedModel}/learning-curve`)
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`)
         return r.json()

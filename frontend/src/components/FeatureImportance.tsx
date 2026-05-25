@@ -20,13 +20,15 @@ function getBarColor(rank: number, total: number): string {
   return '#9ca3af'                  // gray
 }
 
+const API = import.meta.env.VITE_API_URL ?? ''
+
 export default function FeatureImportance() {
   const [features, setFeatures] = useState<FeatureEntry[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('/api/features/importance')
+    fetch(`${API}/features/importance`)
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`)
         return r.json()

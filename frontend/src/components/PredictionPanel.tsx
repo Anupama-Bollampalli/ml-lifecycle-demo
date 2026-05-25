@@ -47,6 +47,8 @@ type PredictResult = {
   label: string
 }
 
+const API = import.meta.env.VITE_API_URL ?? ''
+
 export default function PredictionPanel() {
   const [selectedModel, setSelectedModel] = useState<ModelKey>('logistic')
   const [featureValues, setFeatureValues] = useState<Record<string, number>>(
@@ -76,7 +78,7 @@ export default function PredictionPanel() {
     setResult(null)
     try {
       const features = buildFeatureArray()
-      const res = await fetch('/api/predict', {
+      const res = await fetch(`${API}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ model_name: selectedModel, features }),
